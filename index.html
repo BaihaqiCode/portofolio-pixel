@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baihaqi's Dev Adventure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container" class="hidden">
+      <header class="game-header">
+        <nav class="main-nav container">
+          <a href="#home" class="logo">Baihaqi's Inn</a>
+          <ul class="nav-menu">
+            <li><a href="#about">Journal</a></li>
+            <li><a href="#skills">Abilities</a></li>
+            <li><a href="#projects">Quests</a></li>
+            <li><a href="#contact">Scribe</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="game-world">
+        <section id="home" class="hero-section game-area">
+          <div class="container hero-content">
+            <div class="hero-text">
+              <h1 class="pixel-font">Welcome, Adventurer!</h1>
+              <p>
+                I am Baihaqi, a front-end artisan crafting digital realms with a
+                touch of magic.
+              </p>
+              <a href="path/to/your/cv.pdf" download class="btn btn-primary"
+                >Claim My Scroll (CV)</a
+              >
+            </div>
+            <div class="hero-image">
+              <img
+                src="images/profile-pixel.png"
+                alt="Pixel art character of Baihaqi" 
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="about-section game-area">
+          <div class="container">
+            <h2 class="section-title pixel-font">My Adventure Log</h2>
+            <div class="info-card">
+              <p>
+                As a seasoned front-end developer, I delve into the mysteries of
+                HTML, CSS, and JavaScript to build captivating user experiences.
+                My passion lies in transforming mundane tasks into engaging
+                journeys, much like a grand quest in a fantastical realm. I
+                thrive on challenges and constantly seek new spells to add to my
+                coding repertoire.
+              </p>
+              <p>
+                Beyond the lines of code, I'm an avid explorer of new
+                technologies, always eager to level up my skills and contribute
+                to projects that make a difference. Let's embark on an epic
+                adventure together!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="skills-section game-area">
+          <div class="container">
+            <h2 class="section-title pixel-font">My Spellbook (Skills)</h2>
+            <div class="skills-grid">
+              <div class="skill-item info-card">
+                <span class="skill-icon">✨</span>
+                <h3 class="pixel-font">HTML/CSS Alchemy</h3>
+                <p>Mastering the arcane arts of structure and style.</p>
+              </div>
+              <div class="skill-item info-card">
+                <span class="skill-icon">📜</span>
+                <h3 class="pixel-font">JavaScript Enchantment</h3>
+                <p>Casting spells to bring interactivity to life.</p>
+              </div>
+              <div class="skill-item info-card">
+                <span class="skill-icon">🚀</span>
+                <h3 class="pixel-font">React Potion Brewing</h3>
+                <p>Concocting dynamic and reusable components.</p>
+              </div>
+              <div class="skill-item info-card">
+                <span class="skill-icon">🎮</span>
+                <h3 class="pixel-font">Gamification Design</h3>
+                <p>Infusing fun and engagement into every experience.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="projects-section game-area">
+          <div class="container">
+            <h2 class="section-title pixel-font">Completed Quests</h2>
+            <div class="project-grid">
+              <div class="project-card info-card">
+                <img
+                  src="images/dungeon.png"
+                  alt="Project 1 preview"
+                  class="pixel-render"
+                />
+                <h3 class="pixel-font">The Dungeon Crawler App</h3>
+                <p>
+                  A web-based RPG built with React and a thirst for adventure.
+                </p>
+                <div class="project-actions">
+                  <a href="#" class="btn btn-secondary">View Quest</a>
+                  <a href="#" class="btn btn-icon">🔗</a>
+                </div>
+              </div>
+              <div class="project-card info-card">
+                <img
+                  src="images/toko.png"
+                  alt="Project 2 preview"
+                  class="pixel-render"
+                />
+                <h3 class="pixel-font">Potion Shop E-commerce</h3>
+                <p>
+                  An online emporium for magical elixirs, styled with Tailwind
+                  CSS.
+                </p>
+                <div class="project-actions">
+                  <a href="#" class="btn btn-secondary">View Quest</a>
+                  <a href="#" class="btn btn-icon">🔗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="contact-section game-area">
+          <div class="container">
+            <h2 class="section-title pixel-font">Send a Raven (Contact)</h2>
+            <form class="contact-form info-card">
+              <div class="form-group">
+                <label for="name">Adventurer Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="game-input"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Carrier Pigeon's Address:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="game-input"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Your Message Scroll:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="game-input"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Dispatch Message
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="game-footer">
+        <div class="container">
+          <p>&copy; 2025 Baihaqi's Dev Kingdom. All rights reserved.</p>
+          <p>Built with 💖 and a pinch of pixel dust.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

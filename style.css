@@ -1,0 +1,464 @@
+/* --- Variabel Warna Habitica-inspired --- */
+:root {
+  --habitica-blue: #4a90e2; /* Biru utama */
+  --habitica-green: #60c571; /* Hijau untuk sukses/aksi positif */
+  --habitica-orange: #f5a623; /* Oranye untuk peringatan/aksi sekunder */
+  --habitica-red: #d0021b; /* Merah untuk bahaya/aksi negatif */
+  --habitica-grey-light: #f8f8f8; /* Background sangat terang */
+  --habitica-grey-medium: #e0e0e0; /* Border atau shadow ringan */
+  --habitica-text-dark: #333333; /* Teks utama gelap */
+  --habitica-text-light: #ffffff; /* Teks terang */
+  --habitica-border-dark: #2c3e50; /* Border gelap ala neobrutalism */
+}
+
+/* --- Base Reset & Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif; /* Font utama, bersih dan modern */
+  background-color: var(--habitica-grey-light);
+  color: var(--habitica-text-dark);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+/* Font khusus untuk elemen game */
+.pixel-font {
+  font-family: "Press Start 2P", cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Membuat gambar pixel art tetap tajam */
+.pixel-render {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--habitica-blue);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--habitica-orange);
+}
+
+/* --- Layout Utility --- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px; /* Padding samping untuk responsif */
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Main Game Container --- */
+#game-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header / Game HUD --- */
+.game-header {
+  background-color: var(--habitica-blue);
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--habitica-border-dark); /* Neobrutalism border */
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.2rem;
+  color: var(--habitica-text-light);
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  color: var(--habitica-text-light);
+  font-weight: 700;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--habitica-orange); /* Highlight hover */
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* --- Game World & Section Styles --- */
+.game-world {
+  flex-grow: 1;
+}
+
+.game-area {
+  padding: 80px 0;
+  border-bottom: 2px dashed var(--habitica-grey-medium); /* Pembatas antar section */
+}
+
+.game-area:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--habitica-text-dark);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1); /* Sedikit shadow untuk judul pixel */
+}
+
+/* --- Buttons (Reusable) --- */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 3px solid var(--habitica-border-dark); /* Neobrutalism border */
+  box-shadow: 6px 6px 0px var(--habitica-border-dark); /* Neobrutalism shadow */
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px var(--habitica-border-dark);
+  color: var(--habitica-text-light);
+}
+
+.btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: var(--habitica-green);
+  color: var(--habitica-text-light);
+}
+
+.btn-secondary {
+  background-color: var(--habitica-orange);
+  color: var(--habitica-text-light);
+}
+
+.btn-icon {
+  background-color: var(--habitica-grey-medium);
+  color: var(--habitica-text-dark);
+  padding: 10px 15px; /* Lebih kecil untuk ikon */
+  font-size: 1.2rem;
+  box-shadow: 4px 4px 0px var(--habitica-border-dark);
+}
+
+.btn-icon:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0px var(--habitica-border-dark);
+}
+.btn-icon:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* --- Info Card (Reusable) --- */
+.info-card {
+  background-color: var(--habitica-text-light);
+  border: 3px solid var(--habitica-border-dark);
+  box-shadow: 8px 8px 0px var(--habitica-grey-medium); /* Shadow lebih lembut untuk card */
+  padding: 30px;
+  border-radius: 5px; /* Sedikit rounded corner */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  background: linear-gradient(
+    to bottom right,
+    var(--habitica-blue) 0%,
+    #6ab7ff 100%
+  ); /* Gradien ala Habitica */
+  color: var(--habitica-text-light);
+  text-align: center;
+  height: 100vh;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2); /* Shadow untuk judul utama */
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.hero-image img {
+  width: 200px; /* Ukuran sprite */
+  height: 230px;
+  margin-top: 20px;
+  border: 4px solid var(--habitica-text-light); /* Border putih seperti icon game */
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3); /* Shadow untuk karakter */
+}
+
+/* --- About Section --- */
+.about-section .info-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section .info-card p {
+  margin-bottom: 15px;
+}
+
+.about-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.skill-item {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-item .skill-icon {
+  font-size: 3rem; /* Ukuran ikon emoji */
+  display: block;
+  margin-bottom: 15px;
+}
+
+.skill-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* --- Projects Section --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Pastikan gambar tidak keluar dari card */
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px; /* Tinggi tetap untuk gambar proyek */
+  object-fit: cover;
+  border-bottom: 3px solid var(--habitica-border-dark);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  flex-grow: 1; /* Agar deskripsi memenuhi ruang */
+  margin-bottom: 20px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* Tombol ke kanan */
+  margin-top: auto; /* Dorong ke bawah card */
+}
+
+/* --- Contact Section --- */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.game-input {
+  width: 100%;
+  padding: 12px;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  border: 3px solid var(--habitica-border-dark);
+  box-shadow: 4px 4px 0px var(--habitica-grey-medium);
+  background-color: var(--habitica-grey-light);
+  transition: all 0.2s ease;
+}
+
+.game-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0px var(--habitica-blue);
+  border-color: var(--habitica-blue);
+}
+
+/* --- Footer --- */
+.game-footer {
+  background-color: var(--habitica-text-dark);
+  color: var(--habitica-grey-light);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--habitica-border-dark);
+}
+
+.game-footer p:first-child {
+  margin-bottom: 10px;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .game-header {
+    padding: 10px 0;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-menu {
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Menu responsif */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+
+  .hero-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .project-actions {
+    justify-content: center; /* Tombol proyek di tengah pada mobile */
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .btn-icon {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+}
