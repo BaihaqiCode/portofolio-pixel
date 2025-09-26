@@ -15,10 +15,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="game-container" class="hidden">
+    <div id="game-container">
       <header class="game-header">
         <nav class="main-nav container">
           <a href="#home" class="logo">Baihaqi's Inn</a>
+          <button class="hamburger-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <ul class="nav-menu">
             <li><a href="#about">Journal</a></li>
             <li><a href="#skills">Abilities</a></li>
@@ -44,7 +49,8 @@
             <div class="hero-image">
               <img
                 src="images/profile-pixel.png"
-                alt="Pixel art character of Baihaqi" 
+                alt="Pixel art character of Baihaqi"
+                class="pixel-render"
               />
             </div>
           </div>
@@ -188,5 +194,7 @@
         </div>
       </footer>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

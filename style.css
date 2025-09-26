@@ -65,12 +65,6 @@ a:hover {
   display: none;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* --- Main Game Container --- */
 #game-container {
   min-height: 100vh;
@@ -86,7 +80,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 3px solid var(--habitica-border-dark); /* Neobrutalism border */
+  border-bottom: 3px solid var(--habitica-border-dark);
 }
 
 .main-nav {
@@ -122,7 +116,7 @@ a:hover {
   bottom: 0;
   width: 0;
   height: 3px;
-  background-color: var(--habitica-orange); /* Highlight hover */
+  background-color: var(--habitica-orange);
   transition: width 0.3s ease;
 }
 
@@ -137,7 +131,7 @@ a:hover {
 
 .game-area {
   padding: 80px 0;
-  border-bottom: 2px dashed var(--habitica-grey-medium); /* Pembatas antar section */
+  border-bottom: 2px dashed var(--habitica-grey-medium);
 }
 
 .game-area:last-of-type {
@@ -149,7 +143,7 @@ a:hover {
   text-align: center;
   margin-bottom: 60px;
   color: var(--habitica-text-dark);
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1); /* Sedikit shadow untuk judul pixel */
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Buttons (Reusable) --- */
@@ -159,8 +153,8 @@ a:hover {
   font-family: "Press Start 2P", cursive;
   font-size: 0.9rem;
   text-align: center;
-  border: 3px solid var(--habitica-border-dark); /* Neobrutalism border */
-  box-shadow: 6px 6px 0px var(--habitica-border-dark); /* Neobrutalism shadow */
+  border: 3px solid var(--habitica-border-dark);
+  box-shadow: 6px 6px 0px var(--habitica-border-dark);
   transition: all 0.1s ease-in-out;
   cursor: pointer;
   text-transform: uppercase;
@@ -191,7 +185,7 @@ a:hover {
 .btn-icon {
   background-color: var(--habitica-grey-medium);
   color: var(--habitica-text-dark);
-  padding: 10px 15px; /* Lebih kecil untuk ikon */
+  padding: 10px 15px;
   font-size: 1.2rem;
   box-shadow: 4px 4px 0px var(--habitica-border-dark);
 }
@@ -209,9 +203,9 @@ a:hover {
 .info-card {
   background-color: var(--habitica-text-light);
   border: 3px solid var(--habitica-border-dark);
-  box-shadow: 8px 8px 0px var(--habitica-grey-medium); /* Shadow lebih lembut untuk card */
+  box-shadow: 8px 8px 0px var(--habitica-grey-medium);
   padding: 30px;
-  border-radius: 5px; /* Sedikit rounded corner */
+  border-radius: 5px;
 }
 
 /* --- Hero Section --- */
@@ -220,38 +214,41 @@ a:hover {
     to bottom right,
     var(--habitica-blue) 0%,
     #6ab7ff 100%
-  ); /* Gradien ala Habitica */
+  );
   color: var(--habitica-text-light);
-  text-align: center;
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 75px); /* Tinggi viewport dikurangi tinggi header */
 }
 
 .hero-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 40px;
+  text-align: left;
 }
 
 .hero-text h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
   line-height: 1.1;
-  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2); /* Shadow untuk judul utama */
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .hero-text p {
   font-size: 1.2rem;
   margin-bottom: 40px;
   font-weight: 400;
+  max-width: 500px;
 }
 
 .hero-image img {
-  width: 200px; /* Ukuran sprite */
-  height: 230px;
-  margin-top: 20px;
-  border: 4px solid var(--habitica-text-light); /* Border putih seperti icon game */
-  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3); /* Shadow untuk karakter */
+  width: 200px;
+  height: auto;
+  border: 4px solid var(--habitica-text-light);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
 /* --- About Section --- */
@@ -260,15 +257,8 @@ a:hover {
   margin: 0 auto;
 }
 
-.about-section .info-card p {
+.about-section .info-card p:not(:last-child) {
   margin-bottom: 15px;
-}
-
-.about-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* --- Skills Section --- */
@@ -280,13 +270,13 @@ a:hover {
 
 .skill-item {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .skill-item .skill-icon {
-  font-size: 3rem; /* Ukuran ikon emoji */
+  font-size: 3rem;
   display: block;
   margin-bottom: 15px;
 }
@@ -306,12 +296,12 @@ a:hover {
 .project-card {
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Pastikan gambar tidak keluar dari card */
+  overflow: hidden;
 }
 
 .project-card img {
   width: 100%;
-  height: 200px; /* Tinggi tetap untuk gambar proyek */
+  height: 200px;
   object-fit: cover;
   border-bottom: 3px solid var(--habitica-border-dark);
 }
@@ -323,15 +313,15 @@ a:hover {
 }
 
 .project-card p {
-  flex-grow: 1; /* Agar deskripsi memenuhi ruang */
+  flex-grow: 1;
   margin-bottom: 20px;
 }
 
 .project-actions {
   display: flex;
   gap: 10px;
-  justify-content: flex-end; /* Tombol ke kanan */
-  margin-top: auto; /* Dorong ke bawah card */
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 /* --- Contact Section --- */
@@ -385,8 +375,57 @@ a:hover {
   margin-bottom: 10px;
 }
 
+/* --- Styling untuk Tombol Hamburger --- */
+.hamburger-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2.5rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger-toggle span {
+  width: 2.5rem;
+  height: 0.25rem;
+  background: var(--habitica-text-light);
+  border-radius: 10px;
+}
+
 /* --- Responsiveness --- */
 @media (max-width: 768px) {
+  /* --- Penyesuaian Navigasi untuk Hamburger --- */
+  .hamburger-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--habitica-blue);
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 3px solid var(--habitica-border-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    padding: 10px 0;
+  }
+
+  /* --- Penyesuaian Umum Lainnya --- */
   body {
     font-size: 14px;
   }
@@ -394,16 +433,25 @@ a:hover {
   .game-header {
     padding: 10px 0;
   }
-
-  .main-nav {
-    flex-direction: column;
-    gap: 15px;
+  
+  .hero-section{
+    text-align: center;
   }
-
-  .nav-menu {
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap; /* Menu responsif */
+  
+  .hero-content{
+    flex-direction: column;
+  }
+  
+  .hero-text{
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-image{
+    order: 1;
   }
 
   .section-title {
@@ -416,7 +464,7 @@ a:hover {
   }
 
   .hero-text p {
-    font-size: 1rem;
+    font-size: 1rem;;
   }
 
   .btn {
@@ -426,21 +474,15 @@ a:hover {
 
   .hero-image img {
     width: 150px;
-    height: 150px;
   }
 
   .project-actions {
-    justify-content: center; /* Tombol proyek di tengah pada mobile */
+    justify-content: center;
     flex-wrap: wrap;
   }
 }
 
 @media (max-width: 480px) {
-  .nav-menu {
-    flex-direction: column;
-    text-align: center;
-  }
-
   .logo {
     font-size: 1rem;
   }
